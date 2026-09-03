@@ -1,0 +1,10 @@
+# Panel project dependencies. Same libraries as the main project (needed to
+# load the trained models and the test data).
+fastapi
+uvicorn
+pydantic
+joblib
+pandas
+numpy
+scikit-learn
+xgboost

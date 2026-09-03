@@ -1,0 +1,1022 @@
+{
+  "nslkdd": [
+    {
+      "dataset": "nslkdd",
+      "model": "logistic",
+      "model_label": "Logistic Regression",
+      "accuracy": 0.7628,
+      "precision_macro": 0.6707,
+      "recall_macro": 0.6295,
+      "f1_macro": 0.5572,
+      "auc_roc_macro": 0.9057,
+      "test_latency_ms_per_row": 0.0008,
+      "n_test_rows": 22544,
+      "classes": [
+        "DoS",
+        "Normal",
+        "Probe",
+        "R2L",
+        "U2R"
+      ],
+      "per_class": {
+        "DoS": {
+          "precision": 0.9661,
+          "recall": 0.8105,
+          "f1": 0.8815
+        },
+        "Normal": {
+          "precision": 0.6876,
+          "recall": 0.9233,
+          "f1": 0.7882
+        },
+        "Probe": {
+          "precision": 0.7414,
+          "recall": 0.727,
+          "f1": 0.7341
+        },
+        "R2L": {
+          "precision": 0.8719,
+          "recall": 0.1344,
+          "f1": 0.2329
+        },
+        "U2R": {
+          "precision": 0.0862,
+          "recall": 0.5522,
+          "f1": 0.1492
+        }
+      },
+      "confusion": [
+        [
+          6045,
+          1402,
+          11,
+          0,
+          0
+        ],
+        [
+          92,
+          8966,
+          601,
+          25,
+          27
+        ],
+        [
+          117,
+          520,
+          1760,
+          22,
+          2
+        ],
+        [
+          3,
+          2131,
+          2,
+          388,
+          363
+        ],
+        [
+          0,
+          20,
+          0,
+          10,
+          37
+        ]
+      ]
+    },
+    {
+      "dataset": "nslkdd",
+      "model": "decision_tree",
+      "model_label": "Decision Tree",
+      "accuracy": 0.8163,
+      "precision_macro": 0.7545,
+      "recall_macro": 0.5836,
+      "f1_macro": 0.617,
+      "auc_roc_macro": 0.7672,
+      "test_latency_ms_per_row": 0.0006,
+      "n_test_rows": 22544,
+      "classes": [
+        "DoS",
+        "Normal",
+        "Probe",
+        "R2L",
+        "U2R"
+      ],
+      "per_class": {
+        "DoS": {
+          "precision": 0.9551,
+          "recall": 0.9005,
+          "f1": 0.927
+        },
+        "Normal": {
+          "precision": 0.7401,
+          "recall": 0.9616,
+          "f1": 0.8364
+        },
+        "Probe": {
+          "precision": 0.8325,
+          "recall": 0.6877,
+          "f1": 0.7532
+        },
+        "R2L": {
+          "precision": 0.7714,
+          "recall": 0.2338,
+          "f1": 0.3589
+        },
+        "U2R": {
+          "precision": 0.4737,
+          "recall": 0.1343,
+          "f1": 0.2093
+        }
+      },
+      "confusion": [
+        [
+          6716,
+          666,
+          74,
+          0,
+          2
+        ],
+        [
+          161,
+          9338,
+          207,
+          2,
+          3
+        ],
+        [
+          151,
+          416,
+          1665,
+          189,
+          0
+        ],
+        [
+          2,
+          2152,
+          53,
+          675,
+          5
+        ],
+        [
+          2,
+          46,
+          1,
+          9,
+          9
+        ]
+      ]
+    },
+    {
+      "dataset": "nslkdd",
+      "model": "random_forest",
+      "model_label": "Random Forest",
+      "accuracy": 0.7488,
+      "precision_macro": 0.7972,
+      "recall_macro": 0.5081,
+      "f1_macro": 0.5384,
+      "auc_roc_macro": 0.9489,
+      "test_latency_ms_per_row": 0.0089,
+      "n_test_rows": 22544,
+      "classes": [
+        "DoS",
+        "Normal",
+        "Probe",
+        "R2L",
+        "U2R"
+      ],
+      "per_class": {
+        "DoS": {
+          "precision": 0.961,
+          "recall": 0.7604,
+          "f1": 0.849
+        },
+        "Normal": {
+          "precision": 0.6492,
+          "recall": 0.973,
+          "f1": 0.7788
+        },
+        "Probe": {
+          "precision": 0.8197,
+          "recall": 0.5915,
+          "f1": 0.6871
+        },
+        "R2L": {
+          "precision": 0.9727,
+          "recall": 0.1112,
+          "f1": 0.1996
+        },
+        "U2R": {
+          "precision": 0.5833,
+          "recall": 0.1045,
+          "f1": 0.1772
+        }
+      },
+      "confusion": [
+        [
+          5671,
+          1662,
+          125,
+          0,
+          0
+        ],
+        [
+          67,
+          9449,
+          189,
+          4,
+          2
+        ],
+        [
+          163,
+          826,
+          1432,
+          0,
+          0
+        ],
+        [
+          0,
+          2562,
+          1,
+          321,
+          3
+        ],
+        [
+          0,
+          55,
+          0,
+          5,
+          7
+        ]
+      ]
+    },
+    {
+      "dataset": "nslkdd",
+      "model": "xgboost",
+      "model_label": "XGBoost",
+      "accuracy": 0.7782,
+      "precision_macro": 0.8281,
+      "recall_macro": 0.5653,
+      "f1_macro": 0.6086,
+      "auc_roc_macro": 0.9491,
+      "test_latency_ms_per_row": 0.0027,
+      "n_test_rows": 22544,
+      "classes": [
+        "DoS",
+        "Normal",
+        "Probe",
+        "R2L",
+        "U2R"
+      ],
+      "per_class": {
+        "DoS": {
+          "precision": 0.9632,
+          "recall": 0.8202,
+          "f1": 0.8859
+        },
+        "Normal": {
+          "precision": 0.6764,
+          "recall": 0.9731,
+          "f1": 0.7981
+        },
+        "Probe": {
+          "precision": 0.8692,
+          "recall": 0.6258,
+          "f1": 0.7277
+        },
+        "R2L": {
+          "precision": 0.978,
+          "recall": 0.1538,
+          "f1": 0.2658
+        },
+        "U2R": {
+          "precision": 0.6538,
+          "recall": 0.2537,
+          "f1": 0.3656
+        }
+      },
+      "confusion": [
+        [
+          6117,
+          1309,
+          32,
+          0,
+          0
+        ],
+        [
+          68,
+          9450,
+          188,
+          1,
+          4
+        ],
+        [
+          166,
+          739,
+          1515,
+          1,
+          0
+        ],
+        [
+          0,
+          2430,
+          8,
+          444,
+          5
+        ],
+        [
+          0,
+          42,
+          0,
+          8,
+          17
+        ]
+      ]
+    }
+  ],
+  "cicids": [
+    {
+      "dataset": "cicids",
+      "model": "logistic",
+      "model_label": "Logistic Regression",
+      "accuracy": 0.9549,
+      "precision_macro": 0.8391,
+      "recall_macro": 0.8622,
+      "f1_macro": 0.8267,
+      "auc_roc_macro": 0.9784,
+      "test_latency_ms_per_row": 0.0006,
+      "n_test_rows": 15606,
+      "classes": [
+        "Botnet",
+        "Brute Force",
+        "DDoS",
+        "DoS",
+        "Heartbleed",
+        "Infiltration",
+        "Normal",
+        "PortScan",
+        "Web Attack"
+      ],
+      "per_class": {
+        "Botnet": {
+          "precision": 0.6576,
+          "recall": 0.9848,
+          "f1": 0.7886
+        },
+        "Brute Force": {
+          "precision": 0.9602,
+          "recall": 0.9946,
+          "f1": 0.9771
+        },
+        "DDoS": {
+          "precision": 0.9689,
+          "recall": 0.988,
+          "f1": 0.9784
+        },
+        "DoS": {
+          "precision": 0.9614,
+          "recall": 0.9723,
+          "f1": 0.9669
+        },
+        "Heartbleed": {
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6667
+        },
+        "Infiltration": {
+          "precision": 0.2,
+          "recall": 0.5714,
+          "f1": 0.2963
+        },
+        "Normal": {
+          "precision": 0.9885,
+          "recall": 0.8307,
+          "f1": 0.9027
+        },
+        "PortScan": {
+          "precision": 0.9838,
+          "recall": 0.9937,
+          "f1": 0.9887
+        },
+        "Web Attack": {
+          "precision": 0.8309,
+          "recall": 0.9243,
+          "f1": 0.8751
+        }
+      },
+      "confusion": [
+        [
+          388,
+          0,
+          0,
+          0,
+          0,
+          0,
+          6,
+          0,
+          0
+        ],
+        [
+          0,
+          2752,
+          1,
+          3,
+          0,
+          0,
+          6,
+          0,
+          5
+        ],
+        [
+          1,
+          0,
+          2964,
+          34,
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          7,
+          32,
+          2917,
+          0,
+          0,
+          13,
+          2,
+          28
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          0,
+          1,
+          0,
+          4,
+          1,
+          0,
+          0
+        ],
+        [
+          198,
+          81,
+          62,
+          69,
+          0,
+          16,
+          2492,
+          47,
+          35
+        ],
+        [
+          1,
+          0,
+          0,
+          4,
+          0,
+          0,
+          1,
+          2981,
+          13
+        ],
+        [
+          0,
+          26,
+          0,
+          6,
+          0,
+          0,
+          1,
+          0,
+          403
+        ]
+      ]
+    },
+    {
+      "dataset": "cicids",
+      "model": "decision_tree",
+      "model_label": "Decision Tree",
+      "accuracy": 0.9972,
+      "precision_macro": 0.9951,
+      "recall_macro": 0.9257,
+      "f1_macro": 0.9505,
+      "auc_roc_macro": 0.9629,
+      "test_latency_ms_per_row": 0.0004,
+      "n_test_rows": 15606,
+      "classes": [
+        "Botnet",
+        "Brute Force",
+        "DDoS",
+        "DoS",
+        "Heartbleed",
+        "Infiltration",
+        "Normal",
+        "PortScan",
+        "Web Attack"
+      ],
+      "per_class": {
+        "Botnet": {
+          "precision": 0.9727,
+          "recall": 0.9949,
+          "f1": 0.9837
+        },
+        "Brute Force": {
+          "precision": 0.9996,
+          "recall": 1.0,
+          "f1": 0.9998
+        },
+        "DDoS": {
+          "precision": 0.9997,
+          "recall": 0.9997,
+          "f1": 0.9997
+        },
+        "DoS": {
+          "precision": 0.9957,
+          "recall": 0.9983,
+          "f1": 0.997
+        },
+        "Heartbleed": {
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6667
+        },
+        "Infiltration": {
+          "precision": 1.0,
+          "recall": 0.8571,
+          "f1": 0.9231
+        },
+        "Normal": {
+          "precision": 0.997,
+          "recall": 0.992,
+          "f1": 0.9945
+        },
+        "PortScan": {
+          "precision": 0.9983,
+          "recall": 0.9983,
+          "f1": 0.9983
+        },
+        "Web Attack": {
+          "precision": 0.9931,
+          "recall": 0.9908,
+          "f1": 0.992
+        }
+      },
+      "confusion": [
+        [
+          392,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          0,
+          0
+        ],
+        [
+          0,
+          2767,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          2999,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          2995,
+          0,
+          0,
+          2,
+          2,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          6,
+          0,
+          1,
+          0
+        ],
+        [
+          11,
+          1,
+          1,
+          8,
+          0,
+          0,
+          2976,
+          1,
+          2
+        ],
+        [
+          0,
+          0,
+          0,
+          2,
+          0,
+          0,
+          3,
+          2995,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          2,
+          0,
+          0,
+          2,
+          0,
+          432
+        ]
+      ]
+    },
+    {
+      "dataset": "cicids",
+      "model": "random_forest",
+      "model_label": "Random Forest",
+      "accuracy": 0.997,
+      "precision_macro": 0.9925,
+      "recall_macro": 0.8944,
+      "f1_macro": 0.9276,
+      "auc_roc_macro": 0.9919,
+      "test_latency_ms_per_row": 0.0063,
+      "n_test_rows": 15606,
+      "classes": [
+        "Botnet",
+        "Brute Force",
+        "DDoS",
+        "DoS",
+        "Heartbleed",
+        "Infiltration",
+        "Normal",
+        "PortScan",
+        "Web Attack"
+      ],
+      "per_class": {
+        "Botnet": {
+          "precision": 0.9471,
+          "recall": 1.0,
+          "f1": 0.9728
+        },
+        "Brute Force": {
+          "precision": 0.9996,
+          "recall": 1.0,
+          "f1": 0.9998
+        },
+        "DDoS": {
+          "precision": 0.9993,
+          "recall": 0.9997,
+          "f1": 0.9995
+        },
+        "DoS": {
+          "precision": 0.9973,
+          "recall": 0.9977,
+          "f1": 0.9975
+        },
+        "Heartbleed": {
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6667
+        },
+        "Infiltration": {
+          "precision": 1.0,
+          "recall": 0.5714,
+          "f1": 0.7273
+        },
+        "Normal": {
+          "precision": 0.9966,
+          "recall": 0.991,
+          "f1": 0.9938
+        },
+        "PortScan": {
+          "precision": 0.9997,
+          "recall": 0.9987,
+          "f1": 0.9992
+        },
+        "Web Attack": {
+          "precision": 0.9931,
+          "recall": 0.9908,
+          "f1": 0.992
+        }
+      },
+      "confusion": [
+        [
+          394,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          2767,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          2999,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          2993,
+          0,
+          0,
+          4,
+          0,
+          2
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          4,
+          3,
+          0,
+          0
+        ],
+        [
+          22,
+          1,
+          1,
+          2,
+          0,
+          0,
+          2973,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          3,
+          0,
+          0,
+          0,
+          2996,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          3,
+          0,
+          0,
+          1,
+          0,
+          432
+        ]
+      ]
+    },
+    {
+      "dataset": "cicids",
+      "model": "xgboost",
+      "model_label": "XGBoost",
+      "accuracy": 0.9988,
+      "precision_macro": 0.9974,
+      "recall_macro": 0.9832,
+      "f1_macro": 0.9897,
+      "auc_roc_macro": 1.0,
+      "test_latency_ms_per_row": 0.0067,
+      "n_test_rows": 15606,
+      "classes": [
+        "Botnet",
+        "Brute Force",
+        "DDoS",
+        "DoS",
+        "Heartbleed",
+        "Infiltration",
+        "Normal",
+        "PortScan",
+        "Web Attack"
+      ],
+      "per_class": {
+        "Botnet": {
+          "precision": 0.9874,
+          "recall": 0.9975,
+          "f1": 0.9924
+        },
+        "Brute Force": {
+          "precision": 0.9993,
+          "recall": 1.0,
+          "f1": 0.9996
+        },
+        "DDoS": {
+          "precision": 1.0,
+          "recall": 0.9997,
+          "f1": 0.9998
+        },
+        "DoS": {
+          "precision": 0.998,
+          "recall": 0.999,
+          "f1": 0.9985
+        },
+        "Heartbleed": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "Infiltration": {
+          "precision": 1.0,
+          "recall": 0.8571,
+          "f1": 0.9231
+        },
+        "Normal": {
+          "precision": 0.999,
+          "recall": 0.9977,
+          "f1": 0.9983
+        },
+        "PortScan": {
+          "precision": 1.0,
+          "recall": 0.998,
+          "f1": 0.999
+        },
+        "Web Attack": {
+          "precision": 0.9932,
+          "recall": 1.0,
+          "f1": 0.9966
+        }
+      },
+      "confusion": [
+        [
+          393,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          2767,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          2999,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          2997,
+          0,
+          0,
+          0,
+          0,
+          3
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          2,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          6,
+          1,
+          0,
+          0
+        ],
+        [
+          5,
+          1,
+          0,
+          1,
+          0,
+          0,
+          2993,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          4,
+          0,
+          0,
+          1,
+          2994,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          436
+        ]
+      ]
+    }
+  ]
+}

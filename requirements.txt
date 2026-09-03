@@ -1,0 +1,35 @@
+# ============================================================
+# Project: AI-Based Cybersecurity Threat Detection
+# Phase 0 - Python dependencies
+# ------------------------------------------------------------
+# Each line is one library. Versions pinned to what was tested
+# locally so results are reproducible for the thesis.
+# ============================================================
+
+# --- Core data handling ---
+pandas==3.0.5          # table / CSV manipulation (the 'Excel for Python')
+numpy==2.5.2           # fast numerical arrays (everything is built on this)
+joblib==1.5.3          # save & reload trained models (.pkl files)
+
+# --- Machine learning ---
+scikit-learn==1.9.0    # Logistic Regression, Decision Tree, Random Forest,
+                       #   feature selection, metrics, grid search, k-fold CV
+xgboost==3.4.0         # XGBoost: the 4th algorithm we compare
+imbalanced-learn       # SMOTE: oversamples the minority attack classes
+
+# --- Plotting / visualisation ---
+matplotlib==3.11.1     # low-level plotting (confusion matrices, ROC curves)
+seaborn                # prettier statistical charts on top of matplotlib
+
+# --- Backend API (serves the trained models to the frontend) ---
+fastapi                # the web framework for our prediction API
+uvicorn                # the server that runs the FastAPI app
+pydantic               # automatic request/response data validation in FastAPI
+
+# --- Testing (used in the tests/ folder) ---
+pytest                 # runs the unit tests
+
+# --- Notebook tooling (run the EDA notebook in notebooks/) ---
+jupyter                # opens/runs .ipynb notebooks
+nbconvert              # executes notebooks headlessly to auto-generate reports
+ipykernel              # lets the notebook use this Python environment

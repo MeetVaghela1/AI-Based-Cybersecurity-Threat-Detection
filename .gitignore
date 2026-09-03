@@ -1,0 +1,56 @@
+# ============================================================
+# .gitignore - what NOT to commit to Git
+# ============================================================
+
+# --- Python virtual environment (never commit this) ---
+.venv/
+venv/
+
+# --- Python bytecode / caches ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# --- Jupyter checkpoints ---
+.ipynb_checkpoints/
+
+# --- Raw datasets are large (~2 GB); do not push to Git ---
+# (The DATASET_MANIFEST.md documents where they came from instead.)
+data/raw/*
+!data/raw/DATASET_MANIFEST.md
+
+# --- Generated processed data & models can be regenerated ---
+data/processed/
+src/models/registry/*
+!src/models/registry/.gitkeep
+
+# --- Reports and charts are generated from code ---
+reports/*.png
+reports/*.csv
+reports/*.ipynb
+
+# --- Node / frontend ---
+frontend/node_modules/
+frontend/dist/
+frontend/build/
+
+# --- Top-level raw dataset folders (copies of data/raw, ~2 GB) ---
+MachineLearningCSV/
+nsl-kdd/
+GeneratedLabelledFlows/
+reports/MachineLearningCSV/
+reports/nsl-kdd/
+reports/GeneratedLabelledFlows/
+
+# --- research_panel_project generated artifacts & db ---
+research_panel_project/artifacts/
+research_panel_project/db/
+
+# --- OS / editor cruft ---
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# --- Logs / scratch ---
+*.log

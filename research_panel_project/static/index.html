@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Research Panel — AI-Based Cybersecurity Threat Detection</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <h1>AI-Based Cybersecurity Threat Detection</h1>
+      <p class="sub">Research panel companion — every number below is read from (or written to) the SQLite database <code>db/research_panel.db</code>.</p>
+    </div>
+  </header>
+
+  <nav class="tabs wrap">
+    <button class="tab active" data-tab="overview">Overview</button>
+    <button class="tab" data-tab="underhood">Under the Hood</button>
+    <button class="tab" data-tab="models">Models &amp; Evaluation</button>
+    <button class="tab" data-tab="live">Live Detection</button>
+    <button class="tab" data-tab="log">Prediction Log</button>
+  </nav>
+
+  <main class="wrap">
+
+    <!-- ============================ OVERVIEW ============================ -->
+    <section id="tab-overview" class="view active">
+      <div id="overview-cards" class="cards"></div>
+
+      <h2>Datasets (from the <code>datasets</code> table)</h2>
+      <div class="table-scroll">
+      <table id="dataset-table" class="data">
+        <thead>
+          <tr>
+            <th>Dataset</th><th>Year</th><th>Train rows (raw)</th>
+            <th>Train rows (after SMOTE)</th><th>Test rows</th>
+            <th>Features</th><th>Classes</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      </div>
+      <p class="note">Training rows are only used for training; the test rows are the data the models were never trained on.</p>
+    </section>
+
+    <!-- ========================= UNDER THE HOOD ========================= -->
+    <section id="tab-underhood" class="view">
+      <h2>How the project was built (stored in the <code>pipeline_steps</code> table)</h2>
+      <ol id="pipeline-list" class="steps"></ol>
+
+      <h2>The database, right now (<code>sqlite_master</code> + row counts)</h2>
+      <div class="table-scroll">
+      <table class="data">
+        <thead><tr><th>Table</th><th>Rows</th><th>Columns</th></tr></thead>
+        <tbody id="db-tables"></tbody>
+      </table>
+      </div>
+      <p class="note">Open <code>db/research_panel.db</code> in any SQLite viewer (e.g. DB Browser for SQLite) to run your own queries — the panel is reading exactly the same file.</p>
+    </section>
+
+    <!-- ========================= MODELS & EVAL ========================= -->
+    <section id="tab-models" class="view">
+      <div class="filters">
+        <label>Dataset
+          <select id="models-dataset">
+            <option value="nslkdd">NSL-KDD</option>
+            <option value="cicids">CICIDS2017</option>
+          </select>
+        </label>
+      </div>
+
+      <h2>Test-set results (from the <code>test_metrics</code> table)</h2>
+      <div class="table-scroll">
+      <table class="data">
+        <thead>
+          <tr>
+            <th>Model</th><th>Accuracy</th><th>Precision</th><th>Recall</th>
+            <th>F1</th><th>AUC-ROC</th><th>Latency (ms/row)</th>
+          </tr>
+        </thead>
+        <tbody id="metrics-body"></tbody>
+      </table>
+      </div>
+
+      <h2>Cross-validation &amp; training details (from the <code>models</code> table)</h2>
+      <div class="table-scroll">
+      <table class="data">
+        <thead>
+          <tr>
+            <th>Model</th><th>CV F1-macro</th><th>Latency</th><th>Train rows</th>
+            <th>Params tried</th><th>Best hyperparameters</th><th>Trained at</th>
+          </tr>
+        </thead>
+        <tbody id="models-body"></tbody>
+      </table>
+      </div>
+
+      <h2>Per-class breakdown (from the <code>per_class_metrics</code> table)</h2>
+      <div id="perclass"></div>
+    </section>
+
+    <!-- ========================= LIVE DETECTION ======================== -->
+    <section id="tab-live" class="view">
+      <div class="filters">
+        <label>Dataset
+          <select id="live-dataset">
+            <option value="nslkdd">NSL-KDD</option>
+            <option value="cicids">CICIDS2017</option>
+          </select>
+        </label>
+        <label>Model
+          <select id="live-model">
+            <option value="xgboost">XGBoost</option>
+            <option value="random_forest">Random Forest</option>
+            <option value="decision_tree">Decision Tree</option>
+            <option value="logistic">Logistic Regression</option>
+          </select>
+        </label>
+        <label>Rows
+          <select id="live-count">
+            <option value="10">10</option>
+            <option value="25">25</option>
+            <option value="50">50</option>
+          </select>
+        </label>
+        <button id="run-detection">Run detection &amp; write to DB</button>
+        <button id="run-trace">Run Detection (Step-by-Step)</button>
+      </div>
+
+      <p class="note">Classifies <strong>random rows from the real test set</strong> (data the model never trained on). Every prediction is inserted into the <code>predictions</code> table before it appears below — then check the <strong>Prediction Log</strong> tab.</p>
+
+      <div id="live-result" class="result-note"></div>
+
+      <h2>Run Detection (Step-by-Step)</h2>
+      <p class="note">Picks one real test row and runs it through the actual pipeline — raw input, real preprocessing pass, model inference, decision — measuring <strong>each stage live</strong> (no timings are precomputed or scripted).</p>
+      <div id="trace-result"></div>
+
+      <h2>Detected rows (click a row to see what the model saw)</h2>
+      <div class="table-scroll">
+      <table class="data">
+        <thead>
+          <tr>
+            <th>#</th><th>Prediction</th><th>Confidence</th><th>True label</th>
+            <th>Match</th><th>Latency (ms)</th>
+          </tr>
+        </thead>
+        <tbody id="live-body"></tbody>
+      </table>
+      </div>
+
+      <div id="row-detail" class="row-detail"></div>
+
+      <hr class="sep" />
+
+      <h2>Test your own data (user-defined features)</h2>
+      <p class="note">Pick the dataset/model above, click <strong>Load feature inputs</strong>, then change the values. Any feature you don't set stays at its dataset average, so the model still receives a complete, correctly-ordered row. The result is written to the <code>predictions</code> table like every other detection.</p>
+      <div class="filters">
+        <button id="load-features">Load feature inputs</button>
+        <button id="run-custom" disabled>Predict &amp; write to DB</button>
+      </div>
+      <div id="custom-form" class="feature-grid"></div>
+      <div id="custom-result" class="result-note"></div>
+      <div id="custom-probs"></div>
+    </section>
+
+    <!-- ========================== PREDICTION LOG ======================== -->
+    <section id="tab-log" class="view">
+      <div class="filters">
+        <button id="refresh-log">Refresh</button>
+        <span class="muted" id="log-count"></span>
+      </div>
+      <div class="table-scroll">
+      <table class="data">
+        <thead>
+          <tr>
+            <th>ID</th><th>Timestamp</th><th>Dataset</th><th>Model</th>
+            <th>Prediction</th><th>True label</th><th>Match</th>
+            <th>Confidence</th><th>Latency</th><th>DB row id</th>
+          </tr>
+        </thead>
+        <tbody id="log-body"></tbody>
+      </table>
+      </div>
+      <p class="note">Newest first. The <code>DB row id</code> column is the row number inside <code>db/research_panel.db</code> — verify with <code>SELECT * FROM predictions WHERE id = ...;</code>.</p>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="wrap muted">
+      Models &amp; metrics trained/evaluated in the main project (notebooks 01–04).
+      This panel presents them and logs every live detection to SQLite.
+    </div>
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>
